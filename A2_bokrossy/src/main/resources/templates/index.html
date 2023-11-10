@@ -1,0 +1,36 @@
+<!--Aiden Bokrossy-->
+<!--ID: 991712275-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Password Store Web Application</title>
+	<img width="10%" th:src="@{/img/download.jpg}" />
+	<link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<h1>Password Manager</h1>
+
+    <!-- Form for adding a new password record -->
+	<form method="post" action="#" th:action="@{/addRecord}" th:object="${passwordRecord}">
+		ID: <input type="number" th:field="*{id}" /><br>
+		Title: <input type="text" th:field="*{title}" /><br>
+		Username: <input type="text" th:field="*{username}" /><br>
+		Password: <input type="text" th:field="*{password}" /><br>
+		URL: <input type="text" th:field="*{url}" /><br>
+		Email: <input type="text" th:field="*{email}" /><br>
+		Notes: <input type="text" th:field="*{notes}" /><br>
+		<input type="submit" value="Add Record!" /> <br>
+        <!-- Success message display area -->
+		<div th:if="${success}" class="success-message">
+			<p th:text="${success}"></p>
+		</div>
+        <!-- Navigation links -->
+		<a href="viewPasswordRecord">View Records</a>
+		<a href="searchPasswordRecord">Search Records</a>
+	</form>
+
+</body>
+
+</html>
